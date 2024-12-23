@@ -1,0 +1,80 @@
+/* Evitar desplazamiento horizontal en la página */
+body {
+    overflow-x: hidden;
+}
+
+/* Estilo de la cabecera */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background-color: #6a0dad;
+    /* Color violeta */
+    border-bottom: none;
+    /* Quitar borde inferior */
+}
+
+/* Estilo del título */
+.modal-title {
+    font-size: 1.5rem;
+    /* Ajuste de tamaño */
+    font-weight: bold;
+    margin: 0;
+    color: white;
+    /* Letras blancas */
+}
+
+/* Estilo personalizado para el contenedor del modal */
+.mat-mdc-dialog-surface {
+    width: auto;
+    /* Ajustar el ancho automáticamente */
+    max-width: 90vw;
+    /* Limitar el ancho máximo al 90% del ancho de la ventana */
+    overflow: hidden;
+    /* Ocultar la barra de desplazamiento */
+}
+
+/* Estilo para el cuerpo del modal */
+.modal-body {
+    padding: 16px;
+    font-size: 1rem;
+    color: #000;
+    /* Cambiar el color de la letra a negro */
+    background-color: #fff;
+    /* Fondo blanco */
+}
+
+
+/* Botón de cierre (solo icono) */
+button[mat-icon-button] {
+    background: none;
+    /* Eliminar el fondo del botón */
+    color: white;
+    /* Icono de cierre en blanco */
+}
+
+/* Botón de cierre al pasar el mouse */
+button[mat-icon-button]:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Ligera transparencia */
+}
+
+/* Opcional: Estilo del footer */
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 16px;
+    background-color: #6a0dad;
+    /* Fondo violeta */
+    border-top: none;
+    /* Quitar borde superior */
+}
+
+/* Botón de cierre del footer */
+button[mat-button] {
+    color: white;
+    /* Letras blancas */
+    text-transform: none;
+    /* Evitar mayúsculas */
+}

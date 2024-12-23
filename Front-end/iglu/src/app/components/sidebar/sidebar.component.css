@@ -1,0 +1,59 @@
+* {
+  animation: fadeIn 1s ease-in-out;
+  box-sizing: content-box;
+  overflow: hidden;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+
+
+
+
+.fondo {
+  background-color: #4e444b;
+}
+
+.fondoBarra {
+  background-color: #6E716B;
+}
+
+.mat-drawer {
+  display: flex;
+  position: fixed;
+  width: min-content;
+
+}
+
+
+.mat-drawer-container {
+  display: contents;
+}
+
+.buttonContainer {
+  background-color: transparent;
+  color: white;
+}
+
+.mat-drawer .mat-drawer.mat-drawer-side {
+  overflow: hidden;
+}
+
+.mat-drawer-inner-container {
+  overflow: hidden;
+}
+
+.div-language-selector {
+  text-align-last: center;
+  border-top-style: ridge;
+  margin-top: 5vh;
+
+}

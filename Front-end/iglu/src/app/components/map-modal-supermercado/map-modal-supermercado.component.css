@@ -1,0 +1,18 @@
+.map-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    height: 600px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    color: black;
+}
+
+.google-map {
+    width: 100%;
+    height: 100%;
+}

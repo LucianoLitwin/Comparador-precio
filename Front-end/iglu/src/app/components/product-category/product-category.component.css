@@ -1,0 +1,170 @@
+/* Estilo para 1 producto */
+@media (min-width: 992px) {
+    .container .row:has(.col-lg-3:only-child) .col-lg-3 {
+        flex: 0 0 45% !important;
+        /* Sobrescribe cualquier otro valor */
+        max-width: 45% !important;
+    }
+
+    /* Estilo para 2 productos */
+    .container .row:has(.col-lg-3:nth-child(2):last-child) .col-lg-3 {
+        flex: 0 0 45% !important;
+        /* Sobrescribe cualquier otro valor */
+        max-width: 45% !important;
+    }
+}
+
+/* Estilo general para las tarjetas */
+.card {
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    height: 100%;
+    /* Asegura que todas las tarjetas tengan la misma altura */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* Ajusta el contenido dentro de la tarjeta */
+}
+
+/* Imagen dentro de la tarjeta */
+.product-card img {
+    max-width: 100%;
+    height: 200px;
+    /* Asegura que todas las imágenes tengan la misma altura */
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+
+
+/* NUEVAS MEJORAS PARA RESPONSIVIDAD */
+
+/* Filtros en dispositivos móviles */
+@media (max-width: 768px) {
+    .dropdown-space {
+        margin-left: 0;
+        margin-bottom: 16px;
+        /* Espacio entre filtros */
+        width: 100%;
+        /* Ancho completo en móviles */
+    }
+
+    mat-form-field {
+        width: 100%;
+        /* Asegura el ancho completo */
+    }
+}
+
+/* Tarjetas en dispositivos móviles */
+@media (max-width: 768px) {
+
+    .row .col-lg-3,
+    .row .col-md-4,
+    .row .col-sm-6 {
+        flex: 0 0 100%;
+        /* Tarjeta ocupa todo el ancho */
+        max-width: 100%;
+    }
+
+    .card {
+        margin-bottom: 16px;
+    }
+
+    .card h3,
+    .card p {
+        font-size: 0.9rem;
+    }
+
+    .card button {
+        font-size: 0.8rem;
+    }
+}
+
+/* Botón "MÁS" responsivo */
+@media (max-width: 768px) {
+    button.mat-button {
+        width: 100%;
+        /* Botón ocupa todo el ancho */
+        margin-top: 16px;
+    }
+}
+
+/* Elimina el margen izquierdo en dispositivos móviles */
+@media (max-width: 768px) {
+    .dropdown-space {
+        margin-left: 0 !important;
+        /* Sobrescribe cualquier margen existente */
+    }
+}
+
+
+
+
+
+
+
+/* PARA QUE LOS SELECTORES */
+.dropdown-space {
+    margin-left: 16px;
+    /* Ajusta el valor según el espacio deseado */
+}
+
+
+.no-products {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #555;
+}
+
+
+/*Borrar lo seleccionado en selectores*/
+/* Elimina el fondo del botón y los bordes */
+mat-form-field button[mat-icon-button] {
+    background: transparent;
+    border: none;
+    padding: 0;
+    /* Elimina cualquier relleno extra */
+}
+
+/* Establece el color blanco para el ícono */
+mat-form-field button[mat-icon-button] mat-icon {
+    color: white;
+    font-size: 20px;
+    /* Ajusta el tamaño del ícono si es necesario */
+}
+
+/* Estilo al pasar el mouse para dar retroalimentación visual */
+mat-form-field button[mat-icon-button]:hover mat-icon {
+    color: #f44336;
+    font-size: 20px;
+    /* Rojo o cualquier color de tu preferencia */
+}
+
+mat-form-field button[mat-icon-button]:hover {
+    color: #f44336;
+    /* Cambia a rojo al pasar el cursor */
+}
+
+.mat-icon {
+    font-size: 24px !important;
+    margin-right: 5px;
+}
+
+.my-mat-label {
+    color: black !important;
+}
+
+
+
+.added-to-cart {
+    background-color: #5fc55f !important;
+    color: white !important;
+}
+
+.search-bar {
+    width: 100%;
+    margin-bottom: 1rem;
+}

@@ -1,0 +1,176 @@
+/* Estilo para el stepper */
+mat-horizontal-stepper {
+    display: flex;
+    flex-wrap: wrap;
+    /* Permite que los pasos se ajusten a una nueva línea si es necesario */
+    justify-content: center;
+    /* Centra los pasos */
+    width: 100%;
+    padding: 0 8px;
+}
+
+/* Estilo de cada paso */
+mat-step {
+    flex: 1 1 auto;
+    /* Permite que los pasos se ajusten */
+    margin: 8px 0;
+    text-align: center;
+}
+
+/* Ajustes para los títulos de los pasos */
+mat-step mat-step-label {
+    font-size: 1rem;
+    font-weight: bold;
+    white-space: normal;
+    /* Permite que el texto se divida en varias líneas */
+    word-wrap: break-word;
+    /* Rompe palabras largas */
+}
+
+/* Ajustes de estilo para los encabezados y contenido de los pasos */
+mat-step h2 {
+    font-size: 1.1rem;
+    margin: 4px 0;
+}
+
+/* Ajustes de estilo para los párrafos */
+mat-step p {
+    font-size: 0.9rem;
+    margin: 4px 0;
+}
+
+/* Media query para dispositivos de 768px o menos */
+@media (max-width: 768px) {
+    mat-horizontal-stepper {
+        padding: 4px;
+        /* Reduce el espaciado */
+    }
+
+    mat-step mat-step-label {
+        font-size: 0.9rem;
+        /* Tamaño de fuente reducido */
+    }
+
+    mat-step h2 {
+        font-size: 1rem;
+        /* Tamaño de fuente reducido */
+    }
+
+    mat-step p {
+        font-size: 0.8rem;
+        /* Tamaño de fuente reducido */
+    }
+
+    .dropdown-space {
+        margin-left: 0 !important;
+        /* Sobrescribe cualquier margen existente */
+    }
+
+}
+
+.img-products {
+    height: 40px;
+    width: 50px;
+    margin-right: 10px;
+}
+
+/* Media query para dispositivos pequeños (480px o menos) */
+@media (max-width: 480px) {
+    mat-horizontal-stepper {
+        padding: 2px;
+        /* Mínimo espaciado */
+    }
+
+    mat-step mat-step-label {
+        font-size: 0.8rem;
+        /* Tamaño de fuente aún más reducido */
+    }
+
+    mat-step h2 {
+        font-size: 0.9rem;
+        /* Tamaño de fuente reducido */
+    }
+
+    mat-step p {
+        font-size: 0.75rem;
+        /* Tamaño de fuente más pequeño */
+    }
+}
+
+/* Estilos generales para el contenedor */
+.resumen-container {
+    color: white;
+    margin: 20px;
+}
+
+/* Estilos de la tabla */
+table {
+    color: white;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    /*text-align: left;*/
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+
+/* Estilo para productos con precio_mas_barato igual a 1 */
+.precio-mas-barato {
+    color: #76ff76;
+    font-weight: bold;
+}
+
+
+.supermercadoNoActualizado {
+    margin-top: 3vh;
+    color: red;
+    font-weight: bold;
+}
+
+.logoSuper {
+    height: 35px;
+    margin-right: 5px;
+}
+
+.supermercado-mas-conveniente {
+    font-weight: bold;
+    color: black;
+    background-color: #76ff76;
+}
+
+.dropdown-space {
+    margin-top: 25px;
+    margin-left: 16px;
+}
+
+.mapa-sucursales-info {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.mapa-sucursales-info p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.mapa-sucursales-info button {
+    font-size: 14px;
+}
+
+p {
+    font-weight: 500;
+
+}
+
+.newDiv {
+    color: white;
+}

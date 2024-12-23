@@ -1,0 +1,72 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mat-mdc-button {
+    background-color: #4e444b !important;
+    color: #ffabf3 !important;
+}
+
+.mat-mdc-button:hover {
+    background-color: #7c71ac !important;
+    color: #000;
+}
+
+.mat-snack-bar-container {
+    text-align: center;
+}
+
+.mat-simple-snackbar {
+    display: inline-block !important;
+}
+
+/* Pantalla Splash */
+#splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #4e444b; /* Cambia según tu preferencia */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Alineación vertical */
+    z-index: 9999;
+    transition: opacity 0.7s ease;
+    opacity: 1;
+  }
+  
+  #splash-screen.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  #splash-screen img {
+    width: 250px; /* Ajusta según el tamaño del logo */
+  }
+  
+  #splash-screen p {
+    font-size: 1.2rem;
+    color: #ffffff;
+    margin-left: 15px;
+  }
+  

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://services.supersoap2.das.ubp.edu.ar/" xmlns:tns="http://services.supersoap2.das.ubp.edu.ar/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="ObtenerPreciosRequest" type="tns:ObtenerPreciosRequest"/>
+
+  <xs:element name="ObtenerPreciosResponse" type="tns:ObtenerPreciosResponse"/>
+
+  <xs:element name="ObtenerSucursalesRequest" type="tns:ObtenerSucursalesRequest"/>
+
+  <xs:element name="ObtenerSucursalesResponse" type="tns:ObtenerSucursalesResponse"/>
+
+  <xs:complexType name="ObtenerSucursalesRequest">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="ObtenerSucursalesResponse">
+    <xs:sequence>
+      <xs:element name="SucursalesResponse" type="tns:infoSucursalesBean" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="infoSucursalesBean">
+    <xs:sequence>
+      <xs:element name="nro_sucursal" type="xs:int"/>
+      <xs:element name="nom_sucursal" type="xs:string" minOccurs="0"/>
+      <xs:element name="calle" type="xs:string" minOccurs="0"/>
+      <xs:element name="nro_calle" type="xs:int"/>
+      <xs:element name="telefono" type="xs:string" minOccurs="0"/>
+      <xs:element name="coord_latitud" type="xs:double"/>
+      <xs:element name="coord_longitud" type="xs:double"/>
+      <xs:element name="habilitada" type="xs:boolean"/>
+      <xs:element name="nro_localidad" type="xs:int"/>
+      <xs:element name="pais" type="xs:string" minOccurs="0"/>
+      <xs:element name="servicios" type="xs:string" minOccurs="0"/>
+      <xs:element name="horarios" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ObtenerPreciosRequest">
+    <xs:sequence>
+      <xs:element name="json" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ObtenerPreciosResponse">
+    <xs:sequence>
+      <xs:element name="PreciosResponse" type="tns:preciosProductosBean" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="preciosProductosBean">
+    <xs:sequence>
+      <xs:element name="nro_sucursal" type="xs:int"/>
+      <xs:element name="cod_barra" type="xs:string" minOccurs="0"/>
+      <xs:element name="precio" type="xs:double"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

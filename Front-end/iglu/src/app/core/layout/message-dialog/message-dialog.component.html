@@ -1,0 +1,13 @@
+<div class="modal-header">
+    <h4 class="modal-title">
+        <ng-container *ngIf="message.title; else defaultTitle">{{ message.title }}</ng-container>
+        <ng-template i18n #defaultTitle>Mensaje de error</ng-template>
+    </h4>
+    <button mat-icon-button (click)="close()" i18n-aria-label="Cerrar">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+
+<div class="modal-body">
+    <p i18n [innerHTML]="message.text || 'Ocurrió un error inesperado.'"></p>
+</div>

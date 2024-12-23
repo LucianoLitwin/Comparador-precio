@@ -1,0 +1,96 @@
+<div>
+  <h2 i18n>PRODUCTOS</h2>
+
+  <!-- Campo de búsqueda -->
+  <mat-form-field appearance="outline" class="search-bar my-mat-label">
+    <mat-label i18n class="my-mat-label">Buscar producto</mat-label>
+    <input matInput class="my-mat-label" (keyup)="onSearchChange($event)" i18n-placeholder="Escribe para buscar..." />
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+
+
+  <!-- Filtros -->
+  <mat-form-field appearance="fill" class="dropdown-space">
+    <mat-label i18n>Rubro</mat-label>
+    <mat-select [(value)]="selectedRubro" (selectionChange)="onChangeRubro();pageNumber=1;" multiple>
+      <mat-option *ngFor="let rubro of rubros" [value]="rubro.nro_rubro">{{ rubro.rubro }}</mat-option>
+    </mat-select>
+    <!-- Botón para limpiar el filtro -->
+    <button *ngIf="selectedRubro.length" mat-icon-button matSuffix (click)="clearFilter('selectedRubro')"
+      aria-label="Clear Rubro">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="dropdown-space" *ngIf="categorias.length > 0">
+    <mat-label i18n>Categoría</mat-label>
+    <mat-select [(value)]="selectedCategoria" (selectionChange)="onChangeCategoria();pageNumber=1;" multiple>
+      <mat-option *ngFor="let categoria of categorias" [value]="categoria.nro_categoria">{{ categoria.categoria
+        }}</mat-option>
+    </mat-select>
+    <!-- Botón para limpiar el filtro -->
+    <button *ngIf="selectedCategoria !== null" mat-icon-button matSuffix (click)="clearFilter('selectedCategoria')"
+      aria-label="Clear Categoría">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="dropdown-space" *ngIf="tiposProductos.length > 0">
+    <mat-label i18n>Tipo</mat-label>
+    <mat-select [(value)]="selectedTipoProducto" (selectionChange)="onChangeTipoProducto();pageNumber=1;" multiple>
+      <mat-option *ngFor="let tipoProducto of tiposProductos" [value]="tipoProducto.nro_tipo_producto">{{
+        tipoProducto.tipo_producto
+        }}</mat-option>
+    </mat-select>
+    <!-- Botón para limpiar el filtro -->
+    <button *ngIf="selectedTipoProducto !== null" mat-icon-button matSuffix
+      (click)="clearFilter('selectedTipoProducto')" aria-label="Clear Tipo">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="dropdown-space" *ngIf="marcas.length > 0">
+    <mat-label i18n>Marca</mat-label>
+    <mat-select [(value)]="selectedMarca" (selectionChange)="onFilterChange();pageNumber=1;" multiple>
+      <mat-option *ngFor="let marca of marcas" [value]="marca.nro_marca">{{ marca.nom_marca }}</mat-option>
+    </mat-select>
+    <!-- Botón para limpiar el filtro -->
+    <button *ngIf="selectedMarca !== null" mat-icon-button matSuffix (click)="clearFilter('selectedMarca')"
+      aria-label="Clear Marca">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+
+
+
+
+
+  <!-- Contenedor de productos -->
+  <div class="container">
+    <!-- Verifica si hay productos -->
+    <div *ngIf="products.length === 0" class="no-products">
+      <p i18n>No hay productos disponibles en esta categoría.</p>
+    </div>
+
+    <!-- Si hay productos, muestra la lista -->
+    <div class="row" *ngIf="products.length > 0">
+      <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-4" *ngFor="let product of products">
+        <div class="card h-100">
+          <app-product-card [product]="product"></app-product-card>
+          <button mat-button [ngClass]="{'added-to-cart': isProductInCart(product)}"
+            [color]="isProductInCart(product) ? 'accent' : 'warn'" [disabled]="isProductInCart(product)"
+            (click)="addToCart(product); openSnackBar()" class="mt-2">
+            <ng-container *ngIf="isProductInCart(product)" i18n>Añadido al carrito</ng-container>
+            <ng-container *ngIf="!isProductInCart(product)" i18n>Añadir al carrito</ng-container>
+          </button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Indicador de carga -->
+  <div class="loading-indicator text-center" *ngIf="isLoading">
+    <p i18n>Cargando más productos...</p>
+  </div>
+</div>

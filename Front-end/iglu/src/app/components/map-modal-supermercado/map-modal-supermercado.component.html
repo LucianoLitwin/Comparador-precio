@@ -1,0 +1,14 @@
+<h2 mat-dialog-title i18n>Visualizar Sucursal del Mejor Supermercado</h2>
+<mat-dialog-content>
+    <div class="map-container">
+        <google-map [center]="center" [zoom]="zoom">
+            <map-marker *ngFor="let marker of mapPoints; let ix = index" [position]="marker.position"
+                [title]="marker.title" (mapClick)="openInfoWindow(ix, marker.info)">
+            </map-marker>
+            <map-info-window [innerHTML]="infoContent"></map-info-window>
+        </google-map>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button mat-dialog-close i18n>Cerrar</button>
+</mat-dialog-actions>

@@ -1,0 +1,46 @@
+<mat-sidenav-container class="sideNav" autosize>
+    <mat-sidenav #sidenav mode="side" class="fondo" opened="isExpanded">
+        <mat-nav-list style="margin-right: 10px">
+            <!-- Otros enlaces -->
+            <a mat-list-item class="parent" matTooltip="Inicio" [matTooltipPosition]="'right'" routerLink="/home">
+                <div class="d-flex ">
+                    <div class="row m-1"><mat-icon mat-list-icon class="icon">home</mat-icon></div>
+                </div>
+            </a>
+
+            <a mat-list-item class="parent" matTooltip="Productos" [matTooltipPosition]="'right'"
+                routerLink="/productos">
+                <div class="d-flex ">
+                    <div class="row m-1"><mat-icon mat-list-icon class="icon">shopify</mat-icon></div>
+                </div>
+            </a>
+
+            <a mat-list-item class="parent" matTooltip="Mapas de Sucursales" [matTooltipPosition]="'right'"
+                routerLink="/mapa-sucursales">
+                <div class="d-flex ">
+                    <div class="row m-1"><mat-icon mat-list-icon class="icon">maps</mat-icon></div>
+                </div>
+            </a>
+
+            <a mat-list-item class="parent" matTooltip="Carrito" [matTooltipPosition]="'right'"
+                (click)="openCartModal()">
+                <div class="d-flex justify-content-between">
+                    <mat-icon mat-list-icon class="icon">shopping_cart</mat-icon>
+                    <span>{{ cartProductsCount() }}</span>
+                </div>
+            </a>
+
+            <!-- Selector de idioma -->
+            <div class="div-language-selector">
+                <mat-select [(value)]="selectedLanguage" (selectionChange)="changeLanguage($event.value)">
+                    <mat-option value="es">🇪🇸</mat-option>
+                    <mat-option value="en">🇪🇳</mat-option>
+                </mat-select>
+            </div>
+
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content class="fondoPagina">
+    </mat-sidenav-content>
+</mat-sidenav-container>

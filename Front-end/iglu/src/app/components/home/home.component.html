@@ -1,0 +1,21 @@
+<div class="hero__bg">
+    <picture>
+        <img src="assets/bg.jpg" class="background-image" alt="Fondo de IGLU">
+    </picture>
+</div>
+
+<div class="overlay">
+    <div class="welcome-card">
+        <h1 class="welcome-title">{{ welcomeMessage }}</h1>
+        <h1 i18n class="welcome-title-iglu">INDEC</h1>
+        <h5>{{ secondMessage }}</h5>
+
+        @if (!hasVisited()) {
+        <div class="button-container">
+            <button i18n mat-raised-button color="primary" (click)="navigateToMap()">INGRESAR</button>
+        </div>
+        }@else{
+        <p i18n>Encuentra las mejores opciones y compara precios en un solo lugar.</p>
+        }
+    </div>
+</div>

@@ -1,0 +1,26 @@
+<h3 i18n>Productos en el carrito</h3>
+<!-- Botón de cerrar (cruz) -->
+<button mat-icon-button (click)="closeModal()" class="close-btn">
+    <mat-icon>close</mat-icon> <!-- Icono de cerrar -->
+</button>
+
+<mat-list>
+    <mat-list-item *ngFor="let product of cartProducts">
+        <div class="d-flex justify-content-between">
+            <img [src]="product.imagen" alt="{{ product.nom_producto }}" />
+            <span>{{ product.nom_producto }}</span>
+            <!-- Botón para eliminar el producto -->
+            <button mat-icon-button (click)="removeProductFromCart(product.cod_barra)" class="deleteButton">
+                <mat-icon>delete</mat-icon> <!-- Icono de borrar -->
+            </button>
+        </div>
+    </mat-list-item>
+</mat-list>
+
+<!-- Contenedor para botones -->
+<div class="button-group mb-3">
+    <!-- Botón para ir al comparador de precios -->
+    <button i18n mat-raised-button color="primary" (click)="navigateToComparator()" class="action-button">Comparar Precios</button>
+    <!-- Botón para limpiar todo el carrito -->
+    <button i18n mat-raised-button color="warn" (click)="removeAllProductFromCart()" class="action-button">Limpiar Carrito</button>
+</div>

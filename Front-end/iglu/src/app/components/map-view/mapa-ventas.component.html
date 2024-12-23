@@ -1,0 +1,89 @@
+<div>
+  <h2 i18n>Mapa de Ventas - Sucursales</h2>
+
+  <!-- Campo de búsqueda -->
+  <mat-form-field appearance="outline" class="search-bar">
+    <mat-label i18n class="my-mat-label">Buscar sucursal</mat-label>
+    <input matInput type="text" [(ngModel)]="barraBusqueda" placeholder="Buscar sucursal, razón social o calle"
+      i18n-placeholder="Escribe para buscar..." class="my-mat-label" (keyup)="onSearchChange()" />
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+
+  <!-- Selector de provincia -->
+  <mat-form-field appearance="fill">
+    <mat-label i18n>Seleccionar provincia</mat-label>
+    <mat-select [(value)]="selectedProvince" (selectionChange)="onProvinceChange()">
+      <mat-option *ngFor="let province of provincias" [value]="province.cod_provincia">
+        {{ province.nom_provincia }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- Selector de localidad (oculto inicialmente) -->
+  <mat-form-field appearance="fill" class="dropdown-space" *ngIf="localidades.length > 0">
+    <mat-label i18n>Seleccionar localidad</mat-label>
+    <mat-select [(value)]="selectedLocalidad" (selectionChange)="onLocalidadChange()">
+      <mat-option *ngFor="let localidad of localidades" [value]="localidad.nro_localidad">
+        {{ localidad.nom_localidad }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- Tabla de sucursales -->
+  <div *ngIf="sucursales.length > 0; else noSucursalesMessage" class="table-container mb-4">
+    <table mat-table [dataSource]="sucursales | filterSucursales:barraBusqueda" class="mat-elevation-z8">
+      <ng-container matColumnDef="imagen">
+        <th mat-header-cell *matHeaderCellDef> </th>
+        <td mat-cell *matCellDef="let sucursal">
+          <img [src]="sucursal.imagen" alt="Imagen de la sucursal" class="small-image">
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="nom_sucursal">
+        <th i18n mat-header-cell *matHeaderCellDef> Nombre </th>
+        <td mat-cell *matCellDef="let sucursal"> {{ sucursal.nom_sucursal }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="direccion">
+        <th i18n mat-header-cell *matHeaderCellDef> Dirección </th>
+        <td mat-cell *matCellDef="let sucursal"> {{ sucursal.calle }} {{ sucursal.nro_calle }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="telefono">
+        <th i18n mat-header-cell *matHeaderCellDef> Teléfono </th>
+        <td mat-cell *matCellDef="let sucursal"> {{ sucursal.telefono }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="servicios_disponibles">
+        <th i18n mat-header-cell *matHeaderCellDef> Servicios </th>
+        <td mat-cell *matCellDef="let sucursal"> {{ sucursal.servicios_disponibles }} </td>
+      </ng-container>
+
+      <!-- Encabezado de tabla -->
+      <tr mat-header-row
+        *matHeaderRowDef="['imagen', 'nom_sucursal', 'direccion', 'telefono', 'servicios_disponibles']"></tr>
+      <!-- Filas de datos -->
+      <tr mat-row
+        *matRowDef="let row; columns: ['imagen', 'nom_sucursal', 'direccion', 'telefono', 'servicios_disponibles']">
+      </tr>
+    </table>
+  </div>
+
+  <!-- Mensaje cuando no hay sucursales -->
+  <ng-template #noSucursalesMessage>
+    <p i18n class="no-sucursales-message" *ngIf="selectedLocalidad">
+      No existen supermercados para esta localidad
+    </p>
+  </ng-template>
+
+  <!-- Mapa de Google -->
+  <div class="map-container">
+    <google-map [center]="center" [zoom]="zoom">
+      <map-marker *ngFor="let marker of mapPoints; let i = index" [position]="marker.position" [title]="marker.title"
+        (mapClick)="openInfoWindow(i, marker.info)">
+      </map-marker>
+      <map-info-window [innerHTML]="infoContent"></map-info-window>
+    </google-map>
+
+  </div>
+</div>
